@@ -121,7 +121,7 @@ document.getElementById("equals").addEventListener("click", function(){
     else if (op=='*') {
     	result = multiply(int1, int2);
     }
-    else if (op=='+') {
+    else if (op=='/') {
     	result = divide(int1, int2);
     }
     document.getElementById("result").innerHTML = result;
