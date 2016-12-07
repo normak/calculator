@@ -49,6 +49,10 @@
 	color: white;
 }
 
+.numbers:hover {
+	background-color: #222223;
+}
+
 #clear {
 	background-color: #b82601;
 }
