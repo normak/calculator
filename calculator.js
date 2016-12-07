@@ -100,6 +100,12 @@ document.getElementById("equals").addEventListener("click", function(){
     	if (isNumeric(controls[i]) && reachedop === false) {
     		n1 += controls[i];
     	}
+        else if (controls[i]=='.' && reachedop === false) {
+            n1 += controls[i];
+        }
+        else if (controls[i]=='.' && reachedop === true) {
+            n2 += controls[i];
+        }
     	else if (isNumeric(controls[i]) && reachedop === true) {
     		n2 += controls[i];
     	}
@@ -109,22 +115,28 @@ document.getElementById("equals").addEventListener("click", function(){
     	}
     }
 
-    int1 = parseInt(n1, 10);
-    int2 = parseInt(n2, 10);
+    parsed1 = parseFloat(n1, 10);
+    parsed2 = parseFloat(n2, 10);
 
     if (op=='+') {
-    	result = add(int1, int2);
+    	result = add(parsed1, parsed2);
     }
     else if (op=='-') {
-    	result = subtract(int1, int2);
+    	result = subtract(parsed1, parsed2);
     }
     else if (op=='*') {
-    	result = multiply(int1, int2);
+    	result = multiply(parsed1, parsed2);
     }
     else if (op=='/') {
-    	result = divide(int1, int2);
+    	result = divide(parsed1, parsed2);
     }
     document.getElementById("result").innerHTML = result;
+    n1 = '';
+    n2 = '';
+    op = '';
+    controls="";
+    controls+=result.toString();
+    reachedop = false;
 });
 
 function isNumeric(num){
